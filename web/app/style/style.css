@@ -1,0 +1,231 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root{
+    --font1:'Share Tech Mono';
+    --fontPadrao : Arial, Helvetica, sans-serif;
+    --cor1: rgb(8,77,110);
+    --cor2: rgb(216,223,230);
+}
+
+* {
+    padding:0;
+    margin:0;
+
+}
+
+#header{
+    background-color: var(--cor1);
+    border-radius: 2px;
+    box-shadow: 2px 2px var(--cor2);
+    height: 50px;  
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+}
+
+.nav ul{
+    height: 100%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    
+}
+
+.nav ul a{
+    color: white;
+    font-size: 16px;
+    font-family: var(--fontPadrao);
+    text-decoration: none;
+    padding: 8px;
+    margin-right: 15px;
+    width: 110px;
+}
+
+.nav ul a:last-child { 
+    position: fixed;
+    right: 100px;
+    margin: 0px;
+    width: 50px;
+  }
+
+#icon {
+    color: white;
+}   
+
+.nav ul a:hover{
+    background-color: white;
+    color: var(--cor1);
+    border-radius: 2px;
+    transition: 0.3s;
+      
+}
+
+#icon:hover{
+    color: var(--cor1);
+}
+
+#icon i:hover{
+    color: var(--cor1);
+}
+
+input{
+    font-size: 16px;
+    font-family: var(--fontPadrao);
+}
+
+.img-empty img{
+    width: 600px;
+    display: flex;
+    margin: auto;
+}
+h1{
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color: var(--cor1);
+    font-family: var(--font1);
+    font-size: 20px;
+    text-align: center;
+}
+
+.find{
+    width: 98%;
+    height: 50px;
+    margin-bottom: 30px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+
+    
+}
+.find input{
+    width: 50%;
+    height: 25px;
+    box-shadow: 2px 2px var(--cor2);
+
+    
+}
+.btn-find{
+    margin-left: 5px;
+    margin-bottom: 30px;
+    font-size: 16px;
+    font-family: var(--fontPadrao);
+    background-color: var(--cor1);
+    color: white;
+    width: 150px;
+    height: 30px;
+    padding: 8px;
+    border-radius: 2px;
+    border: none;
+    box-shadow: 2px 2px var(--cor2);
+
+}
+
+.btn-find:hover{
+    background-color: white;
+    color: var(--cor1);
+    border-radius: 2px;
+    transition: 0.3s;
+    border: 1px solid var(--cor1);
+    cursor: pointer;
+
+}
+
+.table {
+   
+    border: 2px solid;
+    color: var(--cor1);
+    width: 98%;
+    margin: auto;
+    margin-top: 30px;
+    border-collapse: collapse;
+}
+.table tr td{
+     border: 1px solid var(--cor1);
+}
+table th{
+   
+    background-color: var(--cor1);
+    color: white;
+    font-family: var(--fontPadrao);
+    width: 180px;
+}
+
+#id{
+    width: 60px;
+}
+#name{
+    width: 300px;
+}
+
+.button{
+  
+    margin: auto;
+    margin-top: 15px;
+    width: 98%;
+    height: 50px;
+    align-items: center;
+    
+}
+.btn{
+    margin-left: 10px;
+    float: inline-end;
+    font-size: 16px;
+    font-family: var(--fontPadrao);
+    background-color: var(--cor1);
+    color: white;
+    width: 150px;
+    height: 30px;
+    padding: 8px;
+    border-radius: 2px;
+    border: none;
+    box-shadow: 2px 2px var(--cor2);
+    
+}
+
+.btn:hover{
+    background-color: white;
+    color: var(--cor1);
+    border-radius: 2px;
+    transition: 0.3s;
+    border: 1px solid var(--cor1);
+    cursor: pointer;
+
+}
+
+
+
+footer{
+    
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    align-items: center;
+   text-align: center;
+    
+    
+    
+}
+footer h2{
+    font-size: 16px;
+    font-family: var(--font1);
+    color: var(--cor1);
+    
+}
+footer p{
+    font-size: 14px;
+    font-family: var(--font1);
+    color: var(--cor1);
+
+}
+footer hr{
+    border-color: 1px var(--cor1);
+   
+    
+}
+
+
+
+
