@@ -17,7 +17,7 @@ public class WebClientApiApplication {
 		SpringApplication.run(WebClientApiApplication.class, args);
 		
 		Pbkdf2PasswordEncoder pbkdf2Encoder = new Pbkdf2PasswordEncoder(
-		"", 8, 185000, SecretKeyFactoryAlgorithm.PBKDF2WithHmacSHA1);
+		"", 8, 185000, SecretKeyFactoryAlgorithm.PBKDF2WithHmacSHA256);
 		
 				
 		Map<String, PasswordEncoder> encoders =  new HashMap<>();

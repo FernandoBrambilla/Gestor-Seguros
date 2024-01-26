@@ -82,6 +82,7 @@ input{
     margin: auto;
 }
 h1{
+    color: re;
     margin-top: 50px;
     margin-bottom: 30px;
     color: var(--cor1);
@@ -90,7 +91,7 @@ h1{
     text-align: center;
 }
 
-.find{
+.find form{
     width: 98%;
     height: 50px;
     margin-bottom: 30px;
@@ -100,14 +101,14 @@ h1{
 
     
 }
-.find input{
-    width: 50%;
+#search input{
+    width: 500px;
     height: 25px;
     box-shadow: 2px 2px var(--cor2);
 
     
 }
-.btn-find{
+#btn_search button{
     margin-left: 5px;
     margin-bottom: 30px;
     font-size: 16px;
@@ -120,10 +121,11 @@ h1{
     border-radius: 2px;
     border: none;
     box-shadow: 2px 2px var(--cor2);
+    align-items: center;
 
 }
 
-.btn-find:hover{
+#btn_search button:hover{
     background-color: white;
     color: var(--cor1);
     border-radius: 2px;

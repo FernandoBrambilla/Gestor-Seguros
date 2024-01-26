@@ -1,0 +1,112 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root{
+    --font1:'Share Tech Mono';
+    --cor1: rgb(8,77,110);
+    --cor2: rgb(216,223,230);
+}
+
+#welcome{
+    margin-top: 50px;
+    text-align: center;
+    font-family: var(--font1);
+}
+
+#welcome h1{
+    font-size: 22px;
+}
+
+#welcome p{
+    font-size: 18px;
+    color: black;
+    padding-top: 10px;
+    
+}
+#response{
+    font-size: 16px;
+    color: white;
+    font-family: var(--font1);
+    display: inline-block;
+}
+
+.register_container{
+    width:80%;
+    display: flex;
+    height: 310px;
+    margin: 40px auto;
+    border-radius: 3px;
+}
+
+.data_for_register{
+    background-color: var(--cor1);
+    width: 500px;
+    height: 310px;
+    border-radius: 3px;
+    box-shadow: 2px 3px 3px lightgray;
+    text-align: center;
+    margin: auto;
+}
+.name{
+    margin-top: 10px;
+}
+
+#name, #phone, #email, #password{
+    width: 350px;
+    height: auto;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    margin-right: 10px;
+    font-size: 16px;
+    font-family: var(--font1);
+    
+}
+
+.name label, .phone label, .email label, .password label{
+    font-family: var(--font1);
+    font-size: 16px;
+    color: white;
+    width:72px;
+    height: 25px;
+    float: left;
+    margin-left: 35px;
+    margin-top: 5px;
+    text-align: right;
+    border: none;
+    
+}
+.button{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    
+
+}
+.home{
+    margin-right: 100px;
+    margin-top: 10px;
+}
+
+.home a{
+    color: white;
+    letter-spacing: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+}
+.home a:hover{
+    color: lightgray;
+}
+
+.btn_register input{
+    font-family: var(--font1);
+    font-size: 20px;
+    border: 1px solid white;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.btn_register input:hover{
+    background-color: var(--cor1);
+    color: white;
+}

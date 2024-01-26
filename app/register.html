@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gestor - Cadasto</title>
+        <link rel="stylesheet" href="Style/styleRegister.css">
+        <script src="https://kit.fontawesome.com/2fe3c7f37b.js" crossorigin="anonymous"></script>
+        <script src="Scripts/script.js"></script>
+
+    </head>
+    <body>
+        <section id="welcome">
+            <div class="text_welcome">
+                <h1>Olá, seja bem vindo!</h1>
+                <hr>
+            </div>
+        </section>
+        <section id="register">
+            <div class="register_container">
+                <div class="img_login">
+                    <img src="Img/img_register.svg"  width="400" alt="">
+                </div>
+                
+                <div class="data_for_register">
+                    <p id="response">Prencha os dados a seguir para fazer seu Cadastro!</p>
+                    <form action="Scripts/register.php" method="get">
+                        <div class="name">
+                            <label for="name"> Nome</label>
+                            <input type="text" name="name" id="name">
+                        </div>
+                        <div class="phone">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" name="phone" id="phone">
+                        </div>
+                        <div class="email">
+                            <label for="email"> Email</label>
+                            <input type="email" name="email" id="email" onkeyup="validateEmail()">
+                        </div>
+                        <div class="password">
+                            <label for="password">Senha</label>
+                            <input type="text" name="password" id="password">
+                        </div> 
+                        <hr>
+                        <div class="button">
+                            <div class="home">
+                                <a href="index.html">Voltar  <i class="fa-solid fa-house" style="color: #fffff4;"></i></a>
+                            </div>
+                            <div class="btn_register" >
+                                <input type="submit" value="Enviar" id="btn_register" onclick="notNull()">
+                            </div>
+                        </div>
+                    </form>
+                </div>  
+            </div>
+        </section> 
+        <hr>
+    </body>
+</html>
