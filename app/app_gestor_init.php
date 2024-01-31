@@ -16,7 +16,7 @@
                 <a id="icon" href="app_clients.php"> <i class="fa-solid fa-people-group"></i>  Clientes</a>
                 <a id="icon" href=""><i class="fa-solid fa-car-burst"></i>  Seguros</a>
                 <a id="icon" href=""> <i class="fa-regular fa-user"></i>  Usuários</a>
-                <a id="icon" href=""> <i id="icon" class="fa-solid fa-right-from-bracket"></i>  Sair </a>
+                <a id="icon" href=""> <i class="fa-solid fa-right-from-bracket"></i>  Sair </a>
                 </ul>
             </div>
         </div>
@@ -34,7 +34,7 @@
 
 <footer>
     <hr>
-    <h2>Gestor - Gerenciador de Clientes v. 1.0</h2>
+    <h2>Gestor - Gerenciador de Clientes v. 3.0</h2>
     <p>Brambilla Sistemas</p>
     <p>Suporte</p>
 </footer>

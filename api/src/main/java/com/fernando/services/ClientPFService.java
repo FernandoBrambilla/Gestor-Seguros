@@ -20,6 +20,11 @@ public class ClientPFService {
 	public List<ClientPF> findAll() {
 		return repository.findAll();
 	}
+	
+	//FindByName
+	public List<ClientPF> findByName(String name){
+		return repository.findByName(name);
+	}
 
 	// FindById
 	public ClientPF findById(Long id) {

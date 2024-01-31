@@ -3,6 +3,7 @@ package com.fernando.Controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fernando.Entities.ClientPF;
@@ -29,6 +31,13 @@ public class ClientPFController {
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<ClientPF> findAll(){
 		return service.findAll();
+	}
+	
+	//FindByName Controller
+	
+	@GetMapping(value= "/name", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<ClientPF>> findByName(@RequestParam String name){
+		return new ResponseEntity<List<ClientPF>> (service.findByName(name),HttpStatus.OK);
 	}
 	
 	//FindById Controller

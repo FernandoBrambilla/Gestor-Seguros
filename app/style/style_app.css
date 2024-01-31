@@ -13,8 +13,16 @@
     margin:0;
 
 }
+header{
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    background-color: white;
 
-#header{
+    margin-bottom: 200px;
+}
+
+#header{    
     background-color: var(--cor1);
     border-radius: 2px;
     box-shadow: 2px 2px var(--cor2);
@@ -91,6 +99,7 @@ h1{
     text-align: center;
 }
 
+
 .find form{
     width: 98%;
     height: 50px;
@@ -134,26 +143,56 @@ h1{
     cursor: pointer;
 
 }
+.table_container{
+   margin-top: 290px;
+   padding-bottom: 100px;
+    
+    
+}
+
+thead tr{ 
+    padding-bottom: 100px;
+    background-color: var(--cor1);
+    color: white;
+    font-family: var(--fontPadrao);
+    font-size: 14px;
+   
+    
+ 
+    
+    
+}
+
+.alert img{
+    display: flex;
+    margin: auto;
+    width: 350px;
+
+    
+}
+
+.alert p{
+    margin: auto;
+    font-size: 20px;
+    font-family: var(--fontPadrao);
+    text-align: center;
+
+}
 
 .table {
-   
     border: 2px solid;
     color: var(--cor1);
     width: 98%;
     margin: auto;
-    margin-top: 30px;
     border-collapse: collapse;
 }
 .table tr td{
      border: 1px solid var(--cor1);
+     color: black;
+     font-family: var(--fontPadrao);
+     font-size: 14px;
 }
-table th{
-   
-    background-color: var(--cor1);
-    color: white;
-    font-family: var(--fontPadrao);
-    width: 180px;
-}
+
 
 #id{
     width: 60px;
@@ -200,30 +239,29 @@ table th{
 
 
 footer{
-    
+    background-color: var(--cor1);
+    z-index: 100;
     position: fixed;
-    bottom: 10px;
+    bottom: 0px;
     width: 100%;
     align-items: center;
-   text-align: center;
-    
-    
-    
+    text-align: center;
+
 }
 footer h2{
     font-size: 16px;
     font-family: var(--font1);
-    color: var(--cor1);
+    color:white;
     
 }
 footer p{
     font-size: 14px;
     font-family: var(--font1);
-    color: var(--cor1);
+    color: white;
 
 }
 footer hr{
-    border-color: 1px var(--cor1);
+    border-color:white;
    
     
 }

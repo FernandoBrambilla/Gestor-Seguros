@@ -41,11 +41,11 @@ public class ClientPF implements Serializable{
 	@Column (nullable = false)
 	private String rg;
 	
-	@Column (nullable = false, name = "date_nasc")
+	@Column (name = "date_nasc")
 	@Temporal(TemporalType.DATE)
 	private Date dateNasc;
 	
-	@Column (nullable = false, name = "date_exp")
+	@Column (name = "date_exp")
 	@Temporal(TemporalType.DATE)
 	private Date dateExp;
 	

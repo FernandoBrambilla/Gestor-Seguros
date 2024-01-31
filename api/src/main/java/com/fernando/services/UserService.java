@@ -29,7 +29,7 @@ public class UserService implements UserDetailsService {
 	public List<User> findAll() {
 		return repository.findAll();
 	}
-
+	
 	// FindById
 	public User findById(Integer id) {
 		return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException());
