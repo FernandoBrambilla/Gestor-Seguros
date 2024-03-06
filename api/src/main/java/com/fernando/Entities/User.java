@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
+import org.springframework.hateoas.RepresentationModel;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -22,7 +23,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table (name = "users")
-public class User implements UserDetails, Serializable {
+public class User extends RepresentationModel<Bank> implements UserDetails, Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id

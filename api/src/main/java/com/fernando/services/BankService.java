@@ -1,10 +1,15 @@
 package com.fernando.services;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 import org.springframework.stereotype.Service;
 
+import com.fernando.Controllers.BankController;
 import com.fernando.Entities.Bank;
 import com.fernando.Exceptions.RequiredObjectIsNullException;
 import com.fernando.Exceptions.ResourceNotFoundException;
@@ -13,17 +18,35 @@ import com.fernando.Repositories.BankRepository;
 @Service
 public class BankService {
 
-	@Autowired
 	BankRepository repository;
+	
+	private final ModelMapper mapper;
+	
+	@Autowired
+	public BankService(BankRepository repository, ModelMapper mapper) {
+		this.repository = repository;
+		this.mapper = mapper;
+	}
 
 	// FindAll
 	public List<Bank> findAll() {
-		return repository.findAll();
+		return repository.findAll().stream()
+				.map(bank -> mapper.map(bank, Bank.class))
+				.collect(Collectors.toList());
 	}
 
 	// FindById
 	public Bank findById(Integer id) {
-		return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException());
+		var entity = repository.findById(id);
+		Bank bankVo = entity.map(bank -> mapper.map(bank, Bank.class))
+				.orElseThrow(() -> new ResourceNotFoundException());
+		
+		bankVo.add(linkTo(methodOn(BankController.class).findById(id)).withSelfRel());
+		return bankVo;
+		
+	
+
+		
 	}
 
 	// Create

@@ -3,6 +3,7 @@ package com.fernando.Entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.springframework.hateoas.RepresentationModel;
 import org.springframework.security.core.GrantedAuthority;
 
 import jakarta.persistence.Column;
@@ -14,7 +15,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "permission")
-public class Permission implements GrantedAuthority, Serializable{
+public class Permission extends RepresentationModel<Bank> implements GrantedAuthority, Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id

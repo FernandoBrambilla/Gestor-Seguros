@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.hateoas.RepresentationModel;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -19,7 +21,7 @@ import jakarta.persistence.TemporalType;
 
 @Entity 
 @Table(name = "client_pf")
-public class ClientPF implements Serializable{
+public class ClientPF extends RepresentationModel<Bank> implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id

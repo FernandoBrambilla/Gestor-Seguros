@@ -195,11 +195,69 @@ thead tr{
 
 
 #id{
-    width: 60px;
+    width: 40px;
+    text-align: center;
+    
 }
 #name{
-    width: 300px;
+    width: 200px;
 }
+
+#cpf{
+    width: 100px;
+}
+#rg{
+    width: 100px;
+}
+#datas{
+    width: 90px;
+}
+#phone{
+    width: 100px;
+}
+#email{
+    width: 150px;
+}
+#address{
+    width: 200px;
+}
+#num{
+    width: 40px;
+}
+#cep{
+    width: 90px;
+}
+#bank{
+    width: 100px;
+}
+
+#bank button{
+    background-color: var(--cor1);
+    color: white;
+    border: none;
+    width: 80px;
+    height: 20px;
+    border-radius: 2px;
+    margin: auto;
+    display: block;
+    align-items: center;
+}
+
+#bank button:hover{
+    background-color: white;
+    color: var(--cor1);
+    border-radius: 2px;
+    transition: 0.3s;
+    border: 1px solid var(--cor1);
+    cursor: pointer;
+
+}
+
+td{
+   vertical-align: middle;
+    height: 35px;
+}
+
 
 .button{
   

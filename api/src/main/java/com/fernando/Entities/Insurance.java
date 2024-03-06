@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+import org.springframework.hateoas.RepresentationModel;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,7 +15,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "insurances")
-public class Insurance implements Serializable{
+public class Insurance extends RepresentationModel<Bank> implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id

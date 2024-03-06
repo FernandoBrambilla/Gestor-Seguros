@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestor</title>
     <link rel="stylesheet" href="style/style_app.css">
-    <script src="https://kit.fontawesome.com/2fe3c7f37b.js" crossorigin="anonymous"></script>
-
+    <script src="https://kit.fontawesome.com/2fe3c7f37b.js" crossorigin="anonymous"></script>   
+    
 </head>
 <body>
 <header>
     <?php
         session_start();
+       
+        
     ?>
     <section id="header">
         </div>
@@ -123,6 +125,9 @@
         //Função findAll
         function findAll(){
             $tokenAccess =  $_SESSION['accessToken'];
+            if(empty($tokenAccess)){
+
+            }
             $header =(
                 array(
                     'Authorization: Bearer '.$tokenAccess
@@ -156,19 +161,19 @@
                     <tr>
                         <th id="id">ID</th>
                         <th id="name">Nome</th>
-                        <th>CPF</th>
-                        <th>RG</th>
-                        <th>Data Expedição</th>
-                        <th>Data Nascimento</th>
-                        <th>Telefone</th>
-                        <th>E-mail</th>
-                        <th>Endereço</th>
-                        <th>Nº</th>
-                        <th>Complemento</th>
-                        <th>Cidade</th>
-                        <th>Estado</th>
-                        <th>CEP</th>
-                        <th>Dados Bancários</th>
+                        <th id="cpf">CPF</th>
+                        <th id="rg">RG</th>
+                        <th id="datas">Data Expedição</th>
+                        <th id="datas">Data Nascimento</th>
+                        <th id="phone">Telefone</th>
+                        <th id="email">E-mail</th>
+                        <th id="address">Endereço</th>
+                        <th id="num">Nº</th>
+                        <th id="compl">Complemento</th>
+                        <th id="city">Cidade</th>
+                        <th id="uf">Estado</th>
+                        <th id="cep">CEP</th>
+                        <th id= "bank">Dados Bancários</th>
                     </tr>
                 </thead>
                 <?php
@@ -190,12 +195,12 @@
                     $bank = $value ->bank;
                     ?>
                     <tr>
-                        <td><?php echo $id ?> </td>
+                        <td id="id"><?php echo $id ?> </td>
                         <td><?php echo $name ?> </td>
                         <td><?php echo $cpf ?> </td>
                         <td><?php echo $rg ?> </td>
                         <td><?php echo $date_exp ?> </td>
-                        <td><?php echo $date_nasc ?> </td>
+                        <td><?php echo $date_nasc?> </td>
                         <td><?php echo $phone ?> </td>
                         <td><?php echo $email ?> </td>
                         <td><?php echo $address ?> </td>
@@ -204,6 +209,9 @@
                         <td><?php echo $city ?> </td>
                         <td><?php echo $uf ?> </td>
                         <td><?php echo $cep ?> </td>
+                        <td id="bank"> 
+                            <button name="showBank">Visualisar</button>
+                        </td>
                     </tr><?php
                 } ?>
             </table><?php

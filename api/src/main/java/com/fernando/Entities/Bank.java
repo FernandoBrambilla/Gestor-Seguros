@@ -3,6 +3,8 @@ package com.fernando.Entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.springframework.hateoas.RepresentationModel;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import jakarta.persistence.Column;
@@ -15,7 +17,7 @@ import jakarta.persistence.Id;
 
 @Entity
 @JsonPropertyOrder({"id", "name", "account_bank_type", "ag", "account"})
-public class Bank implements Serializable {
+public class Bank extends RepresentationModel<Bank> implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id

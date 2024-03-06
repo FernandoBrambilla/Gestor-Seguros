@@ -3,6 +3,8 @@ package com.fernando.Entities;
 import java.io.Serializable;
 import java.util.List;
 
+import org.springframework.hateoas.RepresentationModel;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -17,7 +19,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table (name = "client_pj")
-public class ClientPJ implements Serializable{
+public class ClientPJ extends RepresentationModel<Bank> implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
