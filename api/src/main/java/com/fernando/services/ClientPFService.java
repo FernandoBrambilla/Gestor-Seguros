@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fernando.Controllers.ClientPFController;
+import com.fernando.Controllers.InsuranceController;
 import com.fernando.Entities.ClientPF;
 import com.fernando.Exceptions.RequiredObjectIsNullException;
 import com.fernando.Exceptions.ResourceNotFoundException;
@@ -66,8 +67,10 @@ public class ClientPFService {
 	public ClientPF create(ClientPF clientPF) {
 		if (clientPF == null)
 			throw new RequiredObjectIsNullException();
+		var insuranceVo = repository.save(clientPF);
+		
 		//LINK HATEOAS
-		clientPF.add(linkTo(methodOn(ClientPFController.class).findById(clientPF.getId())).withSelfRel());
+		insuranceVo.add(linkTo(methodOn(ClientPFController.class).findById(insuranceVo.getId())).withSelfRel());
 		return repository.save(clientPF);
 	}
 

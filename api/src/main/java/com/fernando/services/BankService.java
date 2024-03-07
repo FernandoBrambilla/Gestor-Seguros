@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fernando.Controllers.BankController;
+import com.fernando.Controllers.InsuranceController;
 import com.fernando.Entities.Bank;
 import com.fernando.Exceptions.RequiredObjectIsNullException;
 import com.fernando.Exceptions.ResourceNotFoundException;
@@ -56,8 +57,10 @@ public class BankService {
 	public Bank create(Bank bank) {
 		if (bank == null)
 			throw new RequiredObjectIsNullException();
+		var insuranceVo = repository.save(bank);
+		
 		//LINK HATEOAS
-		bank.add(linkTo(methodOn(BankController.class).findById(bank.getId())).withSelfRel());		
+		insuranceVo.add(linkTo(methodOn(BankController.class).findById(insuranceVo.getId())).withSelfRel());
 		return repository.save(bank);
 	}
 

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.fernando.Controllers.ClientPFController;
 import com.fernando.Controllers.ClientPJController;
+import com.fernando.Controllers.InsuranceController;
 import com.fernando.Entities.ClientPJ;
 import com.fernando.Exceptions.RequiredObjectIsNullException;
 import com.fernando.Exceptions.ResourceNotFoundException;
@@ -66,8 +67,10 @@ public class ClientPJService {
 	public ClientPJ create(ClientPJ clientPJ) {
 		if (clientPJ == null)
 			throw new RequiredObjectIsNullException();
+		var insuranceVo = repository.save(clientPJ);
+		
 		//LINK HATEOAS
-		clientPJ.add(linkTo(methodOn(ClientPFController.class).findById(clientPJ.getId())).withSelfRel());
+		insuranceVo.add(linkTo(methodOn(ClientPJController.class).findById(insuranceVo.getId())).withSelfRel());
 		return repository.save(clientPJ);
 	}
 
