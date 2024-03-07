@@ -1,11 +1,16 @@
 package com.fernando.services;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fernando.Controllers.ClientPFController;
 import com.fernando.Entities.ClientPF;
 import com.fernando.Exceptions.RequiredObjectIsNullException;
 import com.fernando.Exceptions.ResourceNotFoundException;
@@ -27,23 +32,42 @@ public class ClientPFService {
 
 	// FindAll
 	public List<ClientPF> findAll() {
-		return repository.findAll();
+		var entity = repository.findAll().stream()
+				.map(clients -> mapper.map(clients, ClientPF.class))
+				.collect(Collectors.toList());
+		//LINK HATEOAS
+		entity.stream().forEach(clients -> clients.add(linkTo(methodOn(ClientPFController.class)
+				.findById(clients.getId())).withSelfRel()));
+		return entity;
 	}
-	
+
 	//FindByName
 	public List<ClientPF> findByName(String name){
-		return repository.findByName(name);
+		var entity = repository.findByName(name).stream()
+				.map(client -> mapper.map(client, ClientPF.class))
+				.collect(Collectors.toList());
+		//LINK HATEOAS
+		entity.stream().forEach(client -> client.add(linkTo(methodOn(ClientPFController.class)
+				.findById(client.getId())).withSelfRel()));
+		return entity;
 	}
 
 	// FindById
 	public ClientPF findById(Long id) {
-		return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException());
-	}
+		var entity = repository.findById(id);
+		var clientPFVo = entity.map(client -> mapper.map(client, ClientPF.class))
+				.orElseThrow(() -> new ResourceNotFoundException());
+		//LINK HATEOAS
+		clientPFVo.add(linkTo(methodOn(ClientPFController.class).findById(id)).withSelfRel());
+		return clientPFVo;	
+	}	
 
 	// Create
 	public ClientPF create(ClientPF clientPF) {
 		if (clientPF == null)
 			throw new RequiredObjectIsNullException();
+		//LINK HATEOAS
+		clientPF.add(linkTo(methodOn(ClientPFController.class).findById(clientPF.getId())).withSelfRel());
 		return repository.save(clientPF);
 	}
 
@@ -69,6 +93,8 @@ public class ClientPFService {
 		entity.setCep(clientPF.getCep());
 		entity.setBank(clientPF.getBank());
 		entity.setInsurance(clientPF.getInsurance());
+		//LINK HATEOAS
+		entity.add(linkTo(methodOn(ClientPFController.class).findById(clientPF.getId())).withSelfRel());
 		return repository.save(entity);
 	}
 

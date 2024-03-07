@@ -22,7 +22,7 @@ public class Bank extends RepresentationModel<Bank> implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	
 	@Column (nullable = false)
 	private String name;
@@ -37,7 +37,7 @@ public class Bank extends RepresentationModel<Bank> implements Serializable {
 	private String account;
 
 	//CONSTUCTOR
-	public Bank(Integer id, String name, String accountBankType, String ag,
+	public Bank(Long id, String name, String accountBankType, String ag,
 			String account) {
 		this.id = id;
 		this.name = name;
@@ -51,7 +51,7 @@ public class Bank extends RepresentationModel<Bank> implements Serializable {
 	}
 
 	//GETTERS AND SETTERS
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 

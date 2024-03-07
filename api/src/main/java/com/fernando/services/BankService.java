@@ -43,7 +43,7 @@ public class BankService {
 	}
 
 	// FindById
-	public Bank findById(Integer id) {
+	public Bank findById(Long id) {
 		var entity = repository.findById(id);
 		var bankVo = entity.map(bank -> mapper.map(bank, Bank.class))
 				.orElseThrow(() -> new ResourceNotFoundException());
@@ -77,7 +77,7 @@ public class BankService {
 	}
 
 	// Delete
-	public void delete(Integer id) {
+	public void delete(Long id) {
 		Bank entity = repository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("No records found for this ID"));
 		repository.delete(entity);

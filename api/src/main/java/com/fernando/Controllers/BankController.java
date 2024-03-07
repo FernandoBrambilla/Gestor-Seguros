@@ -32,7 +32,7 @@ public class BankController {
 
 	// FindById Controller
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Bank findById(@PathVariable(value = "id") Integer id) {
+	public Bank findById(@PathVariable(value = "id") Long id) {
 		return service.findById(id);
 	}
 
@@ -52,7 +52,7 @@ public class BankController {
 
 	// Delete Controller
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<?> delete(@PathVariable(value = "id") Integer id) {
+	public ResponseEntity<?> delete(@PathVariable(value = "id") Long id) {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
