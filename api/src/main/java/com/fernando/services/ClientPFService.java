@@ -2,6 +2,7 @@ package com.fernando.services;
 
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +14,16 @@ import com.fernando.Repositories.ClientPFRepository;
 @Service
 public class ClientPFService {
 
-	@Autowired
 	ClientPFRepository repository;
+	
+	private final ModelMapper mapper;
+	
+	
+	@Autowired
+	public ClientPFService(ClientPFRepository repository,  ModelMapper mapper) {
+		this.repository = repository;
+		this.mapper = mapper;
+	}
 
 	// FindAll
 	public List<ClientPF> findAll() {

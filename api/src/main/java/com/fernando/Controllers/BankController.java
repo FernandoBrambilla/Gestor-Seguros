@@ -47,7 +47,6 @@ public class BankController {
 	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, 
 				produces = MediaType.APPLICATION_JSON_VALUE)
 	public Bank update(@RequestBody Bank bank) {
-		
 		return service.update(bank);
 	}
 

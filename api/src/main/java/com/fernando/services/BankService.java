@@ -1,12 +1,13 @@
 package com.fernando.services;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 import org.springframework.stereotype.Service;
 
 import com.fernando.Controllers.BankController;
@@ -30,29 +31,33 @@ public class BankService {
 
 	// FindAll
 	public List<Bank> findAll() {
-		return repository.findAll().stream()
+		
+		var banks = repository.findAll().stream()
 				.map(bank -> mapper.map(bank, Bank.class))
 				.collect(Collectors.toList());
+		//LINK HATEOAS
+		banks.stream().forEach(bank -> bank.add(linkTo(methodOn(BankController.class).findById(bank.getId())).withSelfRel()));
+		
+		
+		return banks;
 	}
 
 	// FindById
 	public Bank findById(Integer id) {
 		var entity = repository.findById(id);
-		Bank bankVo = entity.map(bank -> mapper.map(bank, Bank.class))
+		var bankVo = entity.map(bank -> mapper.map(bank, Bank.class))
 				.orElseThrow(() -> new ResourceNotFoundException());
-		
+		//LINK HATEOAS
 		bankVo.add(linkTo(methodOn(BankController.class).findById(id)).withSelfRel());
-		return bankVo;
-		
-	
-
-		
+		return bankVo;	
 	}
 
 	// Create
 	public Bank create(Bank bank) {
 		if (bank == null)
 			throw new RequiredObjectIsNullException();
+		//LINK HATEOAS
+		bank.add(linkTo(methodOn(BankController.class).findById(bank.getId())).withSelfRel());		
 		return repository.save(bank);
 	}
 
@@ -66,6 +71,8 @@ public class BankService {
 		entity.setAg(bank.getAg());
 		entity.setAccount(bank.getAccount());
 		entity.setAccountBankType(bank.getAccountBankType());
+		//LINK HATEOAS
+		entity.add(linkTo(methodOn(BankController.class).findById(bank.getId())).withSelfRel());
 		return repository.save(entity);
 	}
 
